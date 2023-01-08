@@ -68,10 +68,10 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(23, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(285, 45);
+            this.label2.Size = new System.Drawing.Size(271, 45);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Paste archive file path here:  \r\nSharpCompress:     Zip, GZip, BZip2, Tar, XZ, LZ" +
-    "ip, Rar\r\nSevenZipSharp: 7z, Zip, GZip, BZip2, Tar, Xz, ";
+            this.label2.Text = "Paste archive file path here:  \r\nSharpCompress: Rar, Zip, GZip, BZip2, Tar, Xz, L" +
+    "Zip\r\nSevenZipSharp: 7z // Zip, GZip, BZip2, Tar, Xz, ";
             // 
             // counterLabel
             // 
