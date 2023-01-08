@@ -32,12 +32,12 @@ namespace DictionaryAttackToEncryptedArchives
             using (StreamReader dicStreamReader = new StreamReader(dicStream, Encoding.UTF8, true))
             while ((pass = dicStreamReader.ReadLine()) != null)
             {
-                ReaderOptions ops = new ReaderOptions();
-                ops.Password = pass;
-
                 if (fileExtension == ".zip" || fileExtension == ".GZip" || fileExtension == ".BZip2" ||
                     fileExtension == ".Tar" || fileExtension == ".Rar" || fileExtension == "LZip" || fileExtension == "XZ")
                 {
+                    ReaderOptions ops = new ReaderOptions();
+                    ops.Password = pass;
+
                     using (Stream archStream = File.OpenRead(filePath))
                     using (IReader reader = ReaderFactory.Open(archStream, ops))
                     {
@@ -68,11 +68,11 @@ namespace DictionaryAttackToEncryptedArchives
                 {
                     try
                     {
-                    SevenZipExtractor extractor = new SevenZipExtractor(filePath, pass);
-                    extractor.ExtractArchive(@".\");
+                        SevenZipExtractor extractor = new SevenZipExtractor(filePath, pass);
+                        extractor.ExtractArchive(@".\");
 
-                    isFound = true;
-                    resultLabel.Text = "Found Pass: " + pass;
+                        isFound = true;
+                        resultLabel.Text = "Found Pass: " + pass;
                     }
                     catch
                     {
