@@ -13,4 +13,4 @@ Program needs 7z.dll file where it can be found default installtion location of 
 
 If password is found, it will printed over 'Result:' label. 
 
-After password is found, decompress the file manually with the found pass.
+After password is found, decompress the file manually with the found pass. Auto decompression gives bad output i dont know why.
