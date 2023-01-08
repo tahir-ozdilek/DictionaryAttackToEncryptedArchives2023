@@ -1,7 +1,8 @@
-Dependencies: .Net 7 and  sharpcompress\0.32.2\ 
+Dependencies:   sharpcompress\0.32.2\  and  sevenzipsharp.net45\1.0.19\
 
 Coded for doing dictionary attack to 
-	Zip, GZip, BZip2, Tar, Rar, LZip, XZ
+	SharpCompress:        Zip, GZip, BZip2, Tar, XZ, LZip, Rar
+	SevenZipSharp: 7z, //(Zip, GZip, BZip2, Tar, Xz)
 archive files.
 
 Dictionary file is supposed to be txt file that 
