@@ -9,6 +9,7 @@ archive files.
 Dictionary file is supposed to be txt file that 
 consist of passwords line by line.
 
+Program needs 7z.dll file where it can be found default installtion location of 7-zip. I tested with 22.01 version.
 
 If password is found, it will printed over 'Result:' label. 
 
