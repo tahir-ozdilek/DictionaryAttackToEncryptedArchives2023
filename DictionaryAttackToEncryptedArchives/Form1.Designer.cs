@@ -35,14 +35,12 @@
             counterLabel = new Label();
             dicpathBox = new TextBox();
             label3 = new Label();
-            label1 = new Label();
-            destinationTextBox = new TextBox();
             SuspendLayout();
             // 
             // resultLabel
             // 
             resultLabel.AutoSize = true;
-            resultLabel.Location = new Point(258, 210);
+            resultLabel.Location = new Point(258, 163);
             resultLabel.Name = "resultLabel";
             resultLabel.Size = new Size(42, 15);
             resultLabel.TabIndex = 0;
@@ -50,7 +48,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(19, 202);
+            button1.Location = new Point(19, 155);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 1;
@@ -72,12 +70,12 @@
             label2.Name = "label2";
             label2.Size = new Size(237, 45);
             label2.TabIndex = 3;
-            label2.Text = "Paste archive file path here:  \r\nNEW: Rar\r\nSevenZipSharp: 7z, Zip, GZip, BZip2, Tar, Xz, ";
+            label2.Text = "Paste archive file path here:  \r\nAspose: Rar\r\nSevenZipSharp: 7z, Zip, GZip, BZip2, Tar, Xz, ";
             // 
             // counterLabel
             // 
             counterLabel.AutoSize = true;
-            counterLabel.Location = new Point(100, 210);
+            counterLabel.Location = new Point(100, 163);
             counterLabel.Name = "counterLabel";
             counterLabel.Size = new Size(96, 15);
             counterLabel.TabIndex = 4;
@@ -99,29 +97,11 @@
             label3.TabIndex = 6;
             label3.Text = "Paste dictionary path here:";
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(19, 147);
-            label1.Name = "label1";
-            label1.Size = new Size(336, 15);
-            label1.TabIndex = 8;
-            label1.Text = "Destination path for (rar only) here: (without name, just folder)";
-            // 
-            // destinationTextBox
-            // 
-            destinationTextBox.Location = new Point(19, 165);
-            destinationTextBox.Name = "destinationTextBox";
-            destinationTextBox.Size = new Size(506, 23);
-            destinationTextBox.TabIndex = 7;
-            // 
             // DictionaryAttackToArchiveFiles
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(579, 256);
-            Controls.Add(label1);
-            Controls.Add(destinationTextBox);
+            ClientSize = new Size(579, 205);
             Controls.Add(label3);
             Controls.Add(dicpathBox);
             Controls.Add(counterLabel);
@@ -144,7 +124,5 @@
         private Label counterLabel;
         private TextBox dicpathBox;
         private Label label3;
-        private Label label1;
-        private TextBox destinationTextBox;
     }
 }

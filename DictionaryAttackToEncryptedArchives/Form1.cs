@@ -46,7 +46,7 @@ namespace DictionaryAttackToEncryptedArchives
 
                             // Unrar or extract password protected files from the archive
                             // Specify password as String at second argument of method
-                            archive.ExtractToDirectory(destinationTextBox.Text, pass);
+                            archive.ExtractToDirectory(@".\", pass);
 
                             isFound = true;
                             resultLabel.Text = "Found Pass: " + pass;
@@ -90,8 +90,8 @@ namespace DictionaryAttackToEncryptedArchives
                             }
                         }
                     }*/
-                    else if (fileExtension == ".7z" || fileExtension == ".zip" || fileExtension == ".GZip" || fileExtension == ".BZip2" ||
-                             fileExtension == ".tar" || fileExtension == ".rar" || fileExtension == "LZip" || fileExtension == "XZ")
+                    else /*if (fileExtension == ".7z" || fileExtension == ".zip" || fileExtension == ".GZip" || fileExtension == ".BZip2" ||
+                             fileExtension == ".tar" || fileExtension == ".rar" || fileExtension == "LZip" || fileExtension == "XZ")*/
                     {
                         try
                         {
