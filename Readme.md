@@ -1,4 +1,4 @@
-Dependencies:   sharpcompress\0.32.2\  and  sevenzipsharp.net45\1.0.19\
+Dependencies:   Aspose.Zip\23.3.0\  and  sevenzipsharp.net45\1.0.19\
 
 Coded for doing dictionary attack to 
 
