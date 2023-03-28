@@ -28,93 +28,111 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.resultLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.arcPathBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.counterLabel = new System.Windows.Forms.Label();
-            this.dicpathBox = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            resultLabel = new Label();
+            button1 = new Button();
+            arcPathBox = new TextBox();
+            label2 = new Label();
+            counterLabel = new Label();
+            dicpathBox = new TextBox();
+            label3 = new Label();
+            label1 = new Label();
+            destinationTextBox = new TextBox();
+            SuspendLayout();
             // 
             // resultLabel
             // 
-            this.resultLabel.AutoSize = true;
-            this.resultLabel.Location = new System.Drawing.Point(258, 165);
-            this.resultLabel.Name = "resultLabel";
-            this.resultLabel.Size = new System.Drawing.Size(42, 15);
-            this.resultLabel.TabIndex = 0;
-            this.resultLabel.Text = "Result:";
+            resultLabel.AutoSize = true;
+            resultLabel.Location = new Point(258, 210);
+            resultLabel.Name = "resultLabel";
+            resultLabel.Size = new Size(42, 15);
+            resultLabel.TabIndex = 0;
+            resultLabel.Text = "Result:";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(19, 157);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "start";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            button1.Location = new Point(19, 202);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 1;
+            button1.Text = "start";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // arcPathBox
             // 
-            this.arcPathBox.Location = new System.Drawing.Point(19, 62);
-            this.arcPathBox.Name = "arcPathBox";
-            this.arcPathBox.Size = new System.Drawing.Size(506, 23);
-            this.arcPathBox.TabIndex = 2;
+            arcPathBox.Location = new Point(19, 62);
+            arcPathBox.Name = "arcPathBox";
+            arcPathBox.Size = new Size(506, 23);
+            arcPathBox.TabIndex = 2;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(23, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(271, 45);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Paste archive file path here:  \r\nSharpCompress: Rar, Zip, GZip, BZip2, Tar, Xz, L" +
-    "Zip\r\nSevenZipSharp: 7z // Zip, GZip, BZip2, Tar, Xz, ";
+            label2.AutoSize = true;
+            label2.Location = new Point(23, 9);
+            label2.Name = "label2";
+            label2.Size = new Size(237, 45);
+            label2.TabIndex = 3;
+            label2.Text = "Paste archive file path here:  \r\nNEW: Rar\r\nSevenZipSharp: 7z, Zip, GZip, BZip2, Tar, Xz, ";
             // 
             // counterLabel
             // 
-            this.counterLabel.AutoSize = true;
-            this.counterLabel.Location = new System.Drawing.Point(100, 165);
-            this.counterLabel.Name = "counterLabel";
-            this.counterLabel.Size = new System.Drawing.Size(96, 15);
-            this.counterLabel.TabIndex = 4;
-            this.counterLabel.Text = "Tried Passwords: ";
+            counterLabel.AutoSize = true;
+            counterLabel.Location = new Point(100, 210);
+            counterLabel.Name = "counterLabel";
+            counterLabel.Size = new Size(96, 15);
+            counterLabel.TabIndex = 4;
+            counterLabel.Text = "Tried Passwords: ";
             // 
             // dicpathBox
             // 
-            this.dicpathBox.Location = new System.Drawing.Point(19, 114);
-            this.dicpathBox.Name = "dicpathBox";
-            this.dicpathBox.Size = new System.Drawing.Size(506, 23);
-            this.dicpathBox.TabIndex = 5;
+            dicpathBox.Location = new Point(19, 114);
+            dicpathBox.Name = "dicpathBox";
+            dicpathBox.Size = new Size(506, 23);
+            dicpathBox.TabIndex = 5;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 96);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(147, 15);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Paste dictionary path here:";
+            label3.AutoSize = true;
+            label3.Location = new Point(19, 96);
+            label3.Name = "label3";
+            label3.Size = new Size(147, 15);
+            label3.TabIndex = 6;
+            label3.Text = "Paste dictionary path here:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(19, 147);
+            label1.Name = "label1";
+            label1.Size = new Size(336, 15);
+            label1.TabIndex = 8;
+            label1.Text = "Destination path for (rar only) here: (without name, just folder)";
+            // 
+            // destinationTextBox
+            // 
+            destinationTextBox.Location = new Point(19, 165);
+            destinationTextBox.Name = "destinationTextBox";
+            destinationTextBox.Size = new Size(506, 23);
+            destinationTextBox.TabIndex = 7;
             // 
             // DictionaryAttackToArchiveFiles
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(579, 202);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.dicpathBox);
-            this.Controls.Add(this.counterLabel);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.arcPathBox);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.resultLabel);
-            this.Name = "DictionaryAttackToArchiveFiles";
-            this.Text = "DictionaryAttackToArchiveFiles 2023";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(579, 256);
+            Controls.Add(label1);
+            Controls.Add(destinationTextBox);
+            Controls.Add(label3);
+            Controls.Add(dicpathBox);
+            Controls.Add(counterLabel);
+            Controls.Add(label2);
+            Controls.Add(arcPathBox);
+            Controls.Add(button1);
+            Controls.Add(resultLabel);
+            Name = "DictionaryAttackToArchiveFiles";
+            Text = "DictionaryAttackToArchiveFiles 2023";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -126,5 +144,7 @@
         private Label counterLabel;
         private TextBox dicpathBox;
         private Label label3;
+        private Label label1;
+        private TextBox destinationTextBox;
     }
 }

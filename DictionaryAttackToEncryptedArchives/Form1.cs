@@ -1,11 +1,15 @@
+using Aspose.Zip.Rar;
 using SevenZip;
 using SharpCompress;
 using SharpCompress.Common;
 using SharpCompress.Compressors.ADC;
 using SharpCompress.Readers;
+using System;
 using System.IO;
+using System.IO.Compression;
 using System.Reflection;
 using System.Text;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DictionaryAttackToEncryptedArchives
 {
@@ -15,7 +19,7 @@ namespace DictionaryAttackToEncryptedArchives
         {
             InitializeComponent();
         }
-         
+
         private void button1_Click(object sender, EventArgs e)
         {
             SevenZipBase.SetLibraryPath(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? Environment.CurrentDirectory, "7z.dll"));
@@ -30,58 +34,81 @@ namespace DictionaryAttackToEncryptedArchives
             String pass;
             using (Stream dicStream = File.OpenRead(dictionaryPath))
             using (StreamReader dicStreamReader = new StreamReader(dicStream, Encoding.UTF8, true))
-            while ((pass = dicStreamReader.ReadLine()) != null)
-            {
-                if (fileExtension == ".zip" || fileExtension == ".GZip" || fileExtension == ".BZip2" ||
-                    fileExtension == ".Tar" || fileExtension == ".Rar" || fileExtension == "LZip" || fileExtension == "XZ")
+                while ((pass = dicStreamReader.ReadLine()) != null)
                 {
-                    ReaderOptions ops = new ReaderOptions();
-                    ops.Password = pass;
-
-                    using (Stream archStream = File.OpenRead(filePath))
-                    using (IReader reader = ReaderFactory.Open(archStream, ops))
+                    if (fileExtension == ".rar")
                     {
-                        while (reader.MoveToNextEntry())
+                        try
                         {
-                            if (!reader.Entry.IsDirectory)
+                            // FileInfo fi = new FileInfo("Data_Password.rar");
+
+                            RarArchive archive = new RarArchive(filePath);
+
+                            // Unrar or extract password protected files from the archive
+                            // Specify password as String at second argument of method
+                            archive.ExtractToDirectory(destinationTextBox.Text, pass);
+
+                            isFound = true;
+                            resultLabel.Text = "Found Pass: " + pass;
+                        }
+                        catch
+                        {
+
+
+                        }
+                    }
+                    /*if (fileExtension == ".rar") //Sharpcompress does not support encrypted archieves.
+                    {
+                        ReaderOptions ops = new ReaderOptions();
+                        ops.Password = pass;
+                        ops.LookForHeader = true;
+                        ops.DisableCheckIncomplete = true;
+
+                        using (Stream archStream = File.OpenRead(filePath))
+                        using (IReader reader = ReaderFactory.Open(archStream, ops))
+                        {
+                            while (reader.MoveToNextEntry())
                             {
-                                try
+                                if (!reader.Entry.IsDirectory)
                                 {
-                                    reader.WriteEntryToDirectory(@".\", new ExtractionOptions()
+                                    try
                                     {
-                                        ExtractFullPath = true,
-                                        Overwrite = true
-                                    });
-                                    isFound = true;
-                                    resultLabel.Text = "Found Pass: " + pass;
-                                }
-                                catch
-                                {
-                                    counter++;
-                                    counterLabel.Text = "Tried Passwords: " + counter.ToString();
+                                        reader.WriteEntryToDirectory(@".\", new ExtractionOptions()
+                                        {
+                                            ExtractFullPath = true,
+                                            Overwrite = true
+                                        });
+                                        isFound = true;
+                                        resultLabel.Text = "Found Pass: " + pass;
+                                    }
+                                    catch
+                                    {
+                                        counter++;
+                                        counterLabel.Text = "Tried Passwords: " + counter.ToString();
+                                    }
                                 }
                             }
                         }
-                    }
-                }
-                else if (fileExtension == ".7z")
-                {
-                    try
+                    }*/
+                    else if (fileExtension == ".7z" || fileExtension == ".zip" || fileExtension == ".GZip" || fileExtension == ".BZip2" ||
+                             fileExtension == ".tar" || fileExtension == ".rar" || fileExtension == "LZip" || fileExtension == "XZ")
                     {
-                        SevenZipExtractor extractor = new SevenZipExtractor(filePath, pass);
-                        extractor.ExtractArchive(@".\");
+                        try
+                        {
+                            SevenZipExtractor extractor = new SevenZipExtractor(filePath, pass);
+                            extractor.ExtractArchive(@".\");
 
-                        isFound = true;
-                        resultLabel.Text = "Found Pass: " + pass;
-                    }
-                    catch
-                    {
-                        counter++;
-                        counterLabel.Text = "Tried Passwords: " + counter.ToString();
+                            isFound = true;
+                            resultLabel.Text = "Found Pass: " + pass;
+                        }
+                        catch
+                        {
+                            counter++;
+                            counterLabel.Text = "Tried Passwords: " + counter.ToString();
+                        }
                     }
                 }
-            }
-            if(!isFound)
+            if (!isFound)
             {
                 resultLabel.Text = "Result: not found";
             }
