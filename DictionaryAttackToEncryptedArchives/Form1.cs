@@ -26,7 +26,7 @@ namespace DictionaryAttackToEncryptedArchives
 
             string dictionaryPath = dicpathBox.Text;
             string filePath = arcPathBox.Text;
-            string fileExtension = ""; //we will have to check if the file chosen is ok
+            string fileExtension = ""; 
             fileExtension = Path.GetExtension(filePath);
 
             bool isFound = false;
@@ -40,12 +40,8 @@ namespace DictionaryAttackToEncryptedArchives
                     {
                         try
                         {
-                            // FileInfo fi = new FileInfo("Data_Password.rar");
-
                             RarArchive archive = new RarArchive(filePath);
 
-                            // Unrar or extract password protected files from the archive
-                            // Specify password as String at second argument of method
                             archive.ExtractToDirectory(@".\", pass);
 
                             isFound = true;
@@ -53,8 +49,9 @@ namespace DictionaryAttackToEncryptedArchives
                         }
                         catch
                         {
-
-
+                            counter++;
+                            counterLabel.Text = "Tried Passwords: " + counter.ToString();
+                            counterLabel.Update();
                         }
                     }
                     /*if (fileExtension == ".rar") //Sharpcompress does not support encrypted archieves.
@@ -105,6 +102,7 @@ namespace DictionaryAttackToEncryptedArchives
                         {
                             counter++;
                             counterLabel.Text = "Tried Passwords: " + counter.ToString();
+                            counterLabel.Update();
                         }
                     }
                 }
